@@ -2,17 +2,21 @@ package com.example.employee.restfulapi.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 public class Company {
     @Id
     @GeneratedValue
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "companyId")
     private Long id;
     private String companyName;
     private Integer employeesNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "company")
+    private Set<Employee> employees = new HashSet<>();
 
     public Company() {
     }
@@ -44,5 +48,13 @@ public class Company {
 
     public void setEmployeesNumber(Integer employeesNumber) {
         this.employeesNumber = employeesNumber;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

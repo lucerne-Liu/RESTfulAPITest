@@ -15,6 +15,10 @@ public class Employee {
     private Integer salary;
     private Long companyId;
 
+    @ManyToOne(targetEntity = Company.class, fetch = FetchType.LAZY)
+    @JoinColumn(name ="companyId", insertable = false, updatable = false)
+    private Company company;
+
     public Employee() {
     }
 
@@ -71,4 +75,12 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+//    public Company getCompany() {
+//        return company;
+//    }
+//
+//    public void setCompany(Company company) {
+//        this.company = company;
+//    }
 }

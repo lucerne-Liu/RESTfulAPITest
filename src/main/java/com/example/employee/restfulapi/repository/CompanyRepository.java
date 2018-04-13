@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -29,6 +30,7 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     @Query("update Company u set u.companyName = ?2, u.employeesNumber = ?3 where u.id = ?1")
     Company undateById(Long id, String companyName, Integer employeesNumber);
     //删除某个company以及名下所有employees
+    @Transactional
     Company deleteById(Long id);
 
 }
