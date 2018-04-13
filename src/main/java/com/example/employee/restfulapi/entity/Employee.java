@@ -15,7 +15,7 @@ public class Employee {
     private Integer salary;
     private Long companyId;
 
-    @ManyToOne(targetEntity = Company.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Company.class)
     @JoinColumn(name ="companyId", insertable = false, updatable = false)
     private Company company;
 

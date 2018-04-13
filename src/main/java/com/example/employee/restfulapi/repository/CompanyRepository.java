@@ -27,10 +27,11 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     Company save(Company company);
     //更新某个company
     @Modifying
+    @Transactional
     @Query("update Company u set u.companyName = ?2, u.employeesNumber = ?3 where u.id = ?1")
-    Company undateById(Long id, String companyName, Integer employeesNumber);
+    int updateById(Long id, String companyName, Integer employeesNumber);
     //删除某个company以及名下所有employees
     @Transactional
-    Company deleteById(Long id);
+    void deleteById(Long id);
 
 }
