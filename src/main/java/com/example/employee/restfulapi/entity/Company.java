@@ -9,6 +9,7 @@ import java.util.Set;
 public class Company {
     @Id
     @GeneratedValue
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "companyId")
     private Long id;
     private String companyName;
     private Integer employeesNumber;
