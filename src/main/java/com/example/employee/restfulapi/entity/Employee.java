@@ -46,9 +46,9 @@ public class Employee {
         this.salary = salary;
     }
 
-    public long getId() {
-        return id;
-    }
+//    public long getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
@@ -76,11 +76,4 @@ public class Employee {
         this.gender = gender;
     }
 
-//    public Company getCompany() {
-//        return company;
-//    }
-//
-//    public void setCompany(Company company) {
-//        this.company = company;
-//    }
 }
