@@ -15,7 +15,7 @@ public class Company {
     private String companyName;
     private Integer employeesNumber;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "company")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "company")
     private Set<Employee> employees = new HashSet<>();
 
     public Company() {
