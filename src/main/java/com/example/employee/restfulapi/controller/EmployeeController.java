@@ -56,11 +56,11 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Employee deleteEmployee(@PathVariable Long id) throws Exception {
+    public String deleteEmployee(@PathVariable Long id) throws Exception {
         if (getEmployee(id) == null) {
             throw new Exception("Employee not found by id: " + id);
         }
         employeeRepository.deleteById(id);
-        return null;
+        return "success";
     }
 }
